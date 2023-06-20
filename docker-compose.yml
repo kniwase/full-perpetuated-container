@@ -16,8 +16,6 @@ services:
       - ./filesystem/usr:/usr:rw
       - ./filesystem/opt:/opt:rw
       - ./filesystem/run:/run:rw
-      - ./filesystem/tmp:/tmp:rw
-      - ./filesystem/srv:/srv:rw
       - ./filesystem/root:/root:rw
       - ./filesystem/home:/home:rw
     command: [ "/usr/bin/supervisord" ]
