@@ -15,13 +15,9 @@ services:
       - ./filesystem/var:/var:rw
       - ./filesystem/usr:/usr:rw
       - ./filesystem/opt:/opt:rw
+      - ./filesystem/run:/run:rw
+      - ./filesystem/tmp:/tmp:rw
+      - ./filesystem/srv:/srv:rw
       - ./filesystem/root:/root:rw
       - ./filesystem/home:/home:rw
-      - ./filesystem/usr/bin:/bin:rw
-      - ./filesystem/usr/sbin:/sbin:rw
-      - ./filesystem/usr/lib:/lib:rw
-      - ./filesystem/usr/lib32:/lib32:rw
-      - ./filesystem/usr/lib64:/lib64:rw
-      - ./filesystem/usr/libx32:/libx32:rw
-      - ./filesystem/run:/var/run:rw
     command: [ "/usr/bin/supervisord" ]
