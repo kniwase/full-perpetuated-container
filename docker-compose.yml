@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  full-perpetuated-container:
+    image: ubuntu:22.04
+    container_name: ubuntu
+    hostname: ubuntu
+    restart: always
+    ports:
+      - "52222:22"
+    volumes:
+      - ./filesystem/boot:/boot:rw
+      - ./filesystem/sys:/sys:rw
+      - ./filesystem/etc:/etc:rw
+      - ./filesystem/var:/var:rw
+      - ./filesystem/usr:/usr:rw
+      - ./filesystem/opt:/opt:rw
+      - ./filesystem/root:/root:rw
+      - ./filesystem/home:/home:rw
+      - ./filesystem/usr/bin:/bin:rw
+      - ./filesystem/usr/sbin:/sbin:rw
+      - ./filesystem/usr/lib:/lib:rw
+      - ./filesystem/usr/lib32:/lib32:rw
+      - ./filesystem/usr/lib64:/lib64:rw
+      - ./filesystem/usr/libx32:/libx32:rw
+      - ./filesystem/run:/var/run:rw
+    command: [ "/usr/bin/supervisord" ]
