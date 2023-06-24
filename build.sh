@@ -26,8 +26,11 @@ function main() {
     docker rm "${IMAGE_NAME}"
     docker rmi "${IMAGE_NAME}"
     # start perpetuated container
-    cd "${BASE_DIR}"
-    docker compose up -d --build
+    if [ -z "$(docker-compose)" ]; then
+        docker-compose -f "${BASE_DIR}/docker-compose.yml" up -d --build
+    else
+        docker compose -f "${BASE_DIR}/docker-compose.yml" up -d --build
+    fi
     # massage
     echo "To connect perpetuated container"
     echo "$ ssh -p 52222 $(id -un)@localhost"
