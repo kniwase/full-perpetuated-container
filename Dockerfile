@@ -1,4 +1,6 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.04 AS base
+
+FROM base AS image
 
 ARG UNAME=ubuntu \
     GID=1000 \

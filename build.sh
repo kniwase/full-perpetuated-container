@@ -11,10 +11,11 @@ function main() {
     # build image
     docker \
         build \
-        -t "${IMAGE_NAME}" \
+        --target image \
+        --tag "${IMAGE_NAME}" \
         --build-arg UID="$(id -u)" \
         --build-arg GID="$(id -g)" \
-        --build-arg "UNAME=$(id -un)" \
+        --build-arg UNAME="$(id -un)" \
         --build-arg "SSH_KEY=$(cat ~/.ssh/id_*.pub ~/.ssh/authorized_keys)" \
         -f Dockerfile \
         "${BASE_DIR}"

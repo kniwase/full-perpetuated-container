@@ -2,7 +2,10 @@ version: "3"
 
 services:
   full-perpetuated-container:
-    image: ubuntu:22.04
+    build:
+      context: ./
+      target: base
+      dockerfile: Dockerfile
     container_name: ubuntu
     hostname: ubuntu
     restart: always
